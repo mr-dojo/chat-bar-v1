@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+dist-ssr/
+*.local
+
+# Editor / OS
+.DS_Store
+*.swp
+*.swo
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# Logs / env
+*.log
+npm-debug.log*
+.env
+.env.*
+!.env.example
+
+# TypeScript
+*.tsbuildinfo
+
+# Local build output (Pages serves committed docs/)
+# dist/ already ignored above

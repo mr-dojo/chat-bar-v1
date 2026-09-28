@@ -1,0 +1,44 @@
+---
+description: Chat Bar V1 product and stack constraints
+globs:
+  - "src/**"
+  - "vite.config.ts"
+  - "package.json"
+alwaysApply: true
+---
+
+# Chat Bar V1
+
+## Goal
+
+Dead-simple React chat-bar. Assistant messages are rendered from
+`ComponentDescriptor` JSON via registry → React components (not raw HTML).
+
+## Stack
+
+- Vite + React 18+ + TypeScript
+- Plain CSS only (no Tailwind / MUI / Chakra / Ant / Redux / Next.js)
+- Local `useState` only — no live LLM or API backend
+- No new deps without asking; `clsx` only if needed
+
+## Architecture
+
+- Extend `src/library/registry.ts` for new UI blocks
+- Do **not** one-off JSX in `Message.tsx` for assistant content
+- Keep HTML/output deterministic from descriptors
+- Unknown descriptor types → `Fallback`; never throw
+- Never `dangerouslySetInnerHTML` for message text
+
+## Locked library components
+
+Text, Card, Button, Image, List, Stack (+ Fallback). Do not expand without an explicit ask.
+
+## Safety
+
+- No secrets in the repo
+- No Costantino Art archive content
+- No family calendar IDs
+
+## Pages
+
+`vite.config.ts` must keep `base: '/chat-bar-v1/'` for GitHub Pages.
